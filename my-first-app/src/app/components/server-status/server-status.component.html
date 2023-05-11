@@ -1,1 +1,5 @@
-<p>{{'Server'}} - ServerId is: {{serverID}} and the status is: {{getServerStatus()}}</p>
+<p [ngStyle]="{backgroundColor: getColor()}"> ServerId is: {{serverID}} and the status is: {{getServerStatus()}}</p>
+
+
+<p [ngClass]="{'alert alert-primary':serverStatus==='online', 
+             'alert alert-secondary':serverStatus==='offline'}" role="alert"> ngClass ServerId is: {{serverID}} and the status is: {{getServerStatus()}}--{{serverStatus}}</p>
