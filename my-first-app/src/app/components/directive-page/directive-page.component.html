@@ -1,0 +1,7 @@
+<button type="button" class="btn btn-secondary" (click)="displayDetails()">Display Details</button>
+<br><br>
+<div class="card" *ngFor="let display of displaysTexts; let index as i">
+    <div [ngClass]="{'card-body text-bg-primary p-3': i>4,'card-body':i<=4}">
+        {{display}} {{i}}
+    </div>
+</div>

@@ -9,6 +9,9 @@ import { SuccessAlertComponent } from './components/success-alert/success-alert.
 import { ServerStatusComponent } from './components/server-status/server-status.component';
 import { ServersComponent } from './components/servers/servers.component';
 import { UserNameComponent } from './components/user-name/user-name.component';
+import { DirectivePageComponent } from './components/directive-page/directive-page.component';
+
+
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { UserNameComponent } from './components/user-name/user-name.component';
     SuccessAlertComponent,
     ServerStatusComponent,
     ServersComponent,
-    UserNameComponent
+    UserNameComponent,
+    DirectivePageComponent
   ],
   imports: [
     BrowserModule,
