@@ -78,20 +78,7 @@
         </div>
     </div>
 </div> -->
+
 <div class="row row-cols-5 g-3">
-    <div class="col" *ngFor="let recipe of recipes">
-        <div class="card h-100" style="width: 18rem;">
-            <img class="card-img-top" [src]="recipe.imagePath" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{recipe.name}}</h5>
-                <p class="card-text">{{recipe.description}}</p>
-            </div>
-            <div class="card-footer pull-center">
-                Link
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item  *ngFor="let recipeElement of recipes" [recipe]="recipeElement" (recipeSelected)="onRecipeSelected(recipeElement)"></app-recipe-item>
 </div>
