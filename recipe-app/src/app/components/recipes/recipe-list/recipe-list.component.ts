@@ -10,9 +10,9 @@ export class RecipeListComponent {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [
-    new Recipe('Pizza', 'A pizza is a sliced dough formed from bread dough.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg'),
-    new Recipe('Pizza', 'A pizza is a sliced dough formed from bread dough.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg'),
-    new Recipe('Pizza', 'A pizza is a sliced dough formed from bread dough.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg'),
+    new Recipe('1 Pizza', '1 A pizza is a sliced dough formed from bread dough.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg'),
+    new Recipe('2 Pizza', '2 A pizza is a sliced dough formed from bread dough.', 'https://www.recipetineats.com/wp-content/uploads/2020/05/Pepperoni-Pizza_5-SQjpg.jpg'),
+    new Recipe('3 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
   ];
 
   constructor() { }
