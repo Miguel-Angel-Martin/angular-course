@@ -9,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent {
+
+
+  lodashVersion: string;
   allowNewServer = false;
   serverCreationStatusBit: boolean = false;
   serverCreationStatus: string = 'No server was created';

@@ -22,7 +22,7 @@ import { DirectivePageComponent } from './components/directive-page/directive-pa
     ServerStatusComponent,
     ServersComponent,
     UserNameComponent,
-    DirectivePageComponent
+    DirectivePageComponent,
   ],
   imports: [
     BrowserModule,
