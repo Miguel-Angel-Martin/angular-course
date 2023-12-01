@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as _ from 'lodash';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
@@ -19,7 +19,8 @@ export class ServersComponent {
   serverCreated: boolean = false;
   servers: string[] = ['TestServer', 'TestServer 2'];
   constructor() {
-    setTimeout(() => {
+    this.lodashVersion= _.VERSION;
+        setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
   }
@@ -34,7 +35,6 @@ export class ServersComponent {
     this.servers.push(this.serverName);
   }
   onUpdateServerName(event: any) {
-    console.log("==>> ~ file: servers.component.ts:29 ~ ServersComponent ~ onUpdateServerName ~ event:", event);
     return (event.target as HTMLInputElement).value;
   }
 }
