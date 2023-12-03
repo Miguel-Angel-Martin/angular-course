@@ -17,13 +17,19 @@
     <br>
     <div class="container">
         <div class="row">
+            
             <div class="col-md-12">
                 <h2>List of the servers</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <li *ngFor="let item of items_servers">{{item}}</li>
+            <div class="col-md-6">
+                <ul class="list-group">
+                <li *ngFor="let item of items_servers; let i = index"
+                [ngClass]="{'list-group-item': true, 'list-group-item-primary': i > 4, 'list-group-item-info': i <= 4}">{{item}}</li>
+                </ul>
+                <!-- [ngStyle]="{backgroundColor: i>=4 ? 'blue' : 'transparent'}"
+                [ngClass]="{'white-text': i>4}">{{item}} -->
             </div>        
     </div>
 </div>
