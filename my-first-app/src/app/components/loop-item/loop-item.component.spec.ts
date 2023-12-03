@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoopItemsComponent } from './loop-items.component';
+import { LoopItemComponent } from './loop-item.component';
 
-describe('LoopItemsComponent', () => {
-  let component: LoopItemsComponent;
-  let fixture: ComponentFixture<LoopItemsComponent>;
+describe('LoopItemComponent', () => {
+  let component: LoopItemComponent;
+  let fixture: ComponentFixture<LoopItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoopItemsComponent]
+      declarations: [LoopItemComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LoopItemsComponent);
+    fixture = TestBed.createComponent(LoopItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

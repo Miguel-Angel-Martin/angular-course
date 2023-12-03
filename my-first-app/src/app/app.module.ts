@@ -10,7 +10,7 @@ import { ServerStatusComponent } from './components/server-status/server-status.
 import { ServersComponent } from './components/servers/servers.component';
 import { UserNameComponent } from './components/user-name/user-name.component';
 import { DirectivePageComponent } from './components/directive-page/directive-page.component';
-import { LoopItemsComponent } from './components/loop-items/loop-items.component';
+import { LoopItemComponent } from './components/loop-item/loop-item.component';
 
 
 
@@ -23,7 +23,8 @@ import { LoopItemsComponent } from './components/loop-items/loop-items.component
     ServersComponent,
     UserNameComponent,
     DirectivePageComponent,
-    LoopItemsComponent
+    LoopItemComponent,
+ 
   ],
   imports: [
     BrowserModule,
