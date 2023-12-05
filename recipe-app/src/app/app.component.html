@@ -21,28 +21,21 @@
     <div class="col-md-12">
       <app-header (featuredSelected)="onNavigate($event)"></app-header>
     </div>
-
-
-
   <div class="row">
     <div class="col-md-12">
       <app-recipes *ngIf="loadedFeature ==='recipe'"></app-recipes>
     </div>
-
   </div>
   <div class="row">
     <div class="col-me-12">
       <app-shopping-list *ngIf="loadedFeature ==='shopping-list'"></app-shopping-list>
     </div>
-
   </div>
-  <hr>
-
+  
   <div class="row">
     <div class="col-md-12">
       <app-footer></app-footer>
     </div>
-
   </div>
 </div>
 </body>
