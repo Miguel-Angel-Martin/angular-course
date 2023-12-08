@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <div class="row">
     <div class="col-md-12">
         <br>
@@ -16,16 +17,22 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle">Mange recipe<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Add ingredients to shopping list</a></li>
-                <li><a href="#">Edit recipe</a></li>
-                <li><a href="#">Delete recipe</a></li>
-            </ul>
-        </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Add ingredients to shopping list</a></li>
+            <li><a class="dropdown-item" href="#">Edit recipe</a></li>
+            <li><a class="dropdown-item" href="#">Delete recipe</a></li>
+        </ul>
+    </div>
     </div>
 </div>
+
+
+
+
 <div class="row">
     <div class="col-xs-12">
         {{recipe.description}}
