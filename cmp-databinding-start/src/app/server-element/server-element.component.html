@@ -1,18 +1,15 @@
-
-    <div class="row">
-        <div class="col-xs-6">
-
-            
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ element.name }}</div>
-                <div class="panel-body">
-                    <p>
-                        <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-                        <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-                    </p>
-                </div>
+<div class="row">
+    <div class="col-xs-6">
+        <div [ngClass]="{'card': true, 'text-white': true, 'bg-primary': element.type === 'server', 'bg-danger': element.type === 'blueprint', 'mb-3': true}" style="max-width: 18rem;">
+            <div class="card-header">{{ element.name }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ element.content }}</h5>
             </div>
         </div>
     </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <ng-content></ng-content>
+    </div>
+</div>

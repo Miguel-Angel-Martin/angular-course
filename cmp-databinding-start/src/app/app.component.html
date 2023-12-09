@@ -4,7 +4,14 @@
   (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
   <hr>
 <div class="container">
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
+        <div [ngClass]="{'card': true, 'border-primary': serverElement.type === 'server', 'border-danger': serverElement.type === 'blueprint', 'mb-3': true}" style="max-width: 18rem;">
+          <div class="card-header">{{serverElement.name}}</div>
+          <div [ngClass]="{'card-body': true, 'text-primary': serverElement.type === 'server', 'text-danger': serverElement.type === 'blueprint'}">
+            <h5 class="card-title">{{serverElement.content}}</h5>
+          </div>
+        </div>
+      </app-server-element>
     </div>
   </div>
 
