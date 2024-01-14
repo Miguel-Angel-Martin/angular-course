@@ -18,4 +18,13 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+  addIngredientsFromRecipe(ingredients: Ingredient[]): void {
+    /*  for (let ingredient of ingredients) {
+      this.addIngredient(ingredient);
+    } */ 
+    //NOTE: this code generate a lot of events it is too bad for big amount of ingredients.
+  
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice(0));
+  }
 }

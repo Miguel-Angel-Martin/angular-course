@@ -1,27 +1,24 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Ingredient } from 'src/app/models/ingredient.model';
 import { Recipe } from 'src/app/models/recipe.model';
+import { ShoppingListService } from '../shopping/shopping-list-service';
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
   recipeSelected= new EventEmitter<Recipe>();
 private recipes: Recipe[] = [
-    new Recipe('1 Pizza', '1 A pizza is a sliced dough formed from bread dough.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg'),
-    new Recipe('2 Pizza', '2 A pizza is a sliced dough formed from bread dough.', 'https://www.recipetineats.com/wp-content/uploads/2020/05/Pepperoni-Pizza_5-SQjpg.jpg'),
-    new Recipe('3 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('4 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('5 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('6 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('7 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('8 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('9 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('10 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('11 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg'),
-    new Recipe('12 Pizza', '3 A pizza is a sliced dough formed from bread dough.', 'https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/pizza-recipe-1.jpg')
+  new Recipe('Pizza', 'A peperoni pizza with mozzarella cheese.', 'https://p1.pxfuel.com/preview/943/14/377/pizza-dough-tomato-macro.jpg', [new Ingredient('Cheese',1), new Ingredient('Peperoni',20)]),
+  new Recipe('Burger', 'Cheese burger of cow meet and french fries.', 'https://sevilla.abc.es/contenidopromocionado/wp-content/uploads/sites/2/2019/09/lacalle.jpg', [new Ingredient('Meat', 1), new Ingredient('Cheese', 2), new Ingredient('Lettuce', 3), new Ingredient('Buns',2)]),
+ 
   ];
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   getRecipes(){
     return this.recipes.slice(); //return a copy of this array.
+  }
+
+  addIngredientsToShoppingList(ingredients:Ingredient[]):void {
+      this.shoppingListService.addIngredientsFromRecipe(ingredients);
   }
 }
