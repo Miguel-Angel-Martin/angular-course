@@ -26,3 +26,7 @@ npm install
 npx npm-check-updates -u
 npm install
 ```
+
+## Guards
+[Link](https://www.youtube.com/watch?v=D1g6RW4oJEs)
+[Youtube 2](https://www.youtube.com/watch?v=Gm6FfkIsTC8)

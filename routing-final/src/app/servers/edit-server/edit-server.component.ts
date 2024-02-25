@@ -3,7 +3,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ServersService } from '../servers.service';
-import { CanComponentDeactivate } from './can-deactivate-guard.service';
+import { CanComponentDeactivate } from 'src/app/interfaces/can-component-deactivate';
+//import { CanComponentDeactivate } from './can-deactivate-guard.service';
+
 
 @Component({
   selector: 'app-edit-server',
@@ -44,6 +46,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     this.changesSaved = true;
     this.router.navigate(['../'], {relativeTo: this.route});
   }
+  
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.allowEdit) {
