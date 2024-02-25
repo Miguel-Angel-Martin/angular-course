@@ -14,3 +14,15 @@
 ## Troubleshouting
 
 ## Tips and tricks.
+
+### Update the all packajes npm [Solution](https://stackoverflow.com/questions/16073603/how-can-i-update-each-dependency-in-package-json-to-the-latest-version)
+
+```
+npm i -g npm-check-updates
+ncu -u
+npm install
+```
+```
+npx npm-check-updates -u
+npm install
+```
