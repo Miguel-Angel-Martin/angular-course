@@ -30,3 +30,4 @@ npm install
 ## Guards
 [Link](https://www.youtube.com/watch?v=D1g6RW4oJEs)
 [Youtube 2](https://www.youtube.com/watch?v=Gm6FfkIsTC8)
+[Solution from the course](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656072#questions/19626762)
