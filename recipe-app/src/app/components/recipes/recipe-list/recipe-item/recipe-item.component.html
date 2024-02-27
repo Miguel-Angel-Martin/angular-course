@@ -6,7 +6,8 @@
             <p class="card-text">{{recipe.description}}</p>
         </div>
         <div class="card-footer text-center">
-            <button class="btn btn-dark" (click)="onSelected()">Detail</button>
+            <!--   <button class="btn btn-dark" (click)="onSelected()" style="cursor: pointer;">Detail</button> -->
+            <button class="btn btn-light" style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active">Detail</button>
         </div>
     </div>
 </div>

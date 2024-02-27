@@ -17,6 +17,9 @@ private recipes: Recipe[] = [
   getRecipes(){
     return this.recipes.slice(); //return a copy of this array.
   }
+  getRecipe(index: number){
+    return this.recipes.slice()[index];
+  }
 
   addIngredientsToShoppingList(ingredients:Ingredient[]):void {
       this.shoppingListService.addIngredientsFromRecipe(ingredients);
