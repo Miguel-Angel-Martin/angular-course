@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, interval, Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count: number = 0;
       setInterval(() => {
         observer.next(count);
-        if (count === 5) {
+        if (count === 10) {
           observer.complete();
         }
         if (count > 3) {
@@ -26,12 +27,34 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    
-    this.firstObsSubscription = customIntervalObservable.subscribe(data => {
+/*     customIntervalObservable.pipe(map((data: number)=>{
+      return  'Round: ' + (data + 1);
+    })); */
+
+    this.firstObsSubscription = customIntervalObservable.pipe(filter((data: number) =>{
+      return data > 0;
+    }),map((data: number) => {
+      return 'Round: ' + (data + 1);
+    })).subscribe(data => {
       this.count = data;
       console.log("==> ~ HomeComponent ~ this.firstObsSubscription=customIntervalObservable ~ this.count: ", this.count);
+    }, error => {
+      console.log("==> ~ HomeComponent ~ this.firstObsSubscription=customIntervalObservable ~ error: ", error.message);
+      alert(error.message);
+    }, () => {
+      alert("Observable completed");
+    });
+    
+    /* this.firstObsSubscription = customIntervalObservable.subscribe(data => {
+      this.count = data;
+      console.log("==> ~ HomeComponent ~ this.firstObsSubscription=customIntervalObservable ~ this.count: ", this.count);
+    }, error => {
+      console.log("==> ~ HomeComponent ~ this.firstObsSubscription=customIntervalObservable ~ error: ", error.message);
+      alert(error.message);
+    }, () =>{
+      alert("Observable completed");
     })
-
+ */
 
     /* this.firstObsSubscription = interval(1000).subscribe(x => {
       this.count=x;

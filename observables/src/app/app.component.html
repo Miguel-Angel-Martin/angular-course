@@ -11,7 +11,16 @@
       </a>
     </div>
   </div>
-  <hr />
+  <hr /> <!-- Horizontal line -->
+  
+  <!-- Display "Activated" if userActivated is true, else display "Deactivated" -->
+  <p *ngIf="userActivated; else deactivatedMessage">Activated</p>
+  
+  <ng-template #deactivatedMessage>
+    <p>Deactivated</p>
+  </ng-template>
+  
+  <hr /> <!-- Another horizontal line -->
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <router-outlet></router-outlet>
