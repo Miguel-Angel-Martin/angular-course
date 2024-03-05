@@ -1,10 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from 'src/app/models/ingredient.model';
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingListService {
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+ /*  ingredientsChanged = new EventEmitter<Ingredient[]>(); */
+  ingredientsChanged = new Subject<Ingredient[]>();
   private ingredients: Ingredient[] = [
     new Ingredient('Tomatoes', 5),
     new Ingredient('Cucumbers', 2),
@@ -16,7 +18,8 @@ export class ShoppingListService {
   }
   addIngredient(ingredient: Ingredient): void {
     this.ingredients.push(ingredient);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    /* this.ingredientsChanged.emit(this.ingredients.slice()); */
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
   addIngredientsFromRecipe(ingredients: Ingredient[]): void {
     /*  for (let ingredient of ingredients) {
@@ -25,6 +28,7 @@ export class ShoppingListService {
     //NOTE: this code generate a lot of events it is too bad for big amount of ingredients.
   
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice(0));
+   /*  this.ingredientsChanged.emit(this.ingredients.slice(0)); */
+    this.ingredientsChanged.next(this.ingredients.slice(0));
   }
 }
