@@ -1,0 +1,50 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="row gy-3">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" id="email" class="form-control" ngModel name="email" required="true" email="true" #email="ngModel">
+        <small id="emailHelp" class="form-text text-secondary" *ngIf="!email.touched">Please enter your email!</small>
+        <small id="emailHelp" class="form-text text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email!</small>
+      </div>
+
+      <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" 
+      id="password" 
+      placeholder="Password" 
+      required 
+      minlength="8" 
+      maxlength="12" 
+      ngModel 
+      #password="ngModel" 
+      name="password"
+      pattern='^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9!@#$%^&*()-_=+`~{}\[\]|\\:;<>,.?\/]*$'>
+      <small id="passwordHelp" class="form-text text-secondary" *ngIf="!password.touched">Please enter your password (8-12 characters)!</small>
+      <small class="form-text text-danger" *ngIf="password.errors?.minlength && password.touched">Name must be at least 8 characters long.</small>
+      <small class="form-text text-danger" *ngIf="password.errors?.maxlength && password.touched">Name cannot be more than 12 characters long.</small>
+      <small class="form-text text-danger" *ngIf="password.errors?.pattern && password.touched">Letters (uppercase and lowercase), numbers and symbols are needed</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control"  name="selection" ngModel  #selection="ngModel" required>
+          <option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>
+        </select>
+      </div>
+      <div class="form-button-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12" *ngIf="submitted">
+      <h3>Your Data</h3>
+      <p>Username: {{answer.email}}</p>
+      <p>Password: {{answer.password}}</p>
+      <p>Selection: {{options[answer.selection-1].name || answer.selection}}</p>
+    </div>
+  </div>
+  <hr>
+</div>
