@@ -1,0 +1,39 @@
+<div class="container">
+  <form class="row g-3 needs-validation" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6 form-group">
+      <label for="projectname" class="form-label">Project Name</label>
+      <input type="text" class="form-control" id="projectName" formControlName="projectName" value="">
+      <span *ngIf="!projectForm.get('projectName').valid && projectForm.get('projectName').touched" class="text text-danger">
+        <span *ngIf="projectForm.get('projectName').errors['IsForbidden']">This name is forbidden!</span>
+        <span *ngIf="projectForm.get('projectName').errors['required']">This field is required!</span>
+      </span>
+
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text">&#64;</span>
+          <input type="text" class="form-control" aria-describedby="inputGroupPrepend" id="projectEmail" formControlName="projectEmail">
+        </div>
+        <span *ngIf="projectForm.get('projectEmail').errors">
+          <span *ngIf="projectForm.get('projectEmail').errors['emailIsForbidden']" class="text text-danger">This email is taken!</span>
+          <span *ngIf="!projectForm.get('projectEmail').valid && projectForm.get('projectEmail').touched && !projectForm.get('projectEmail').errors['emailIsForbidden']" class="text text-danger">Please enter a valid email!</span>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="projectStatus" formControlName="projectStatus">
+        <option selected disabled value="">Choose...</option>
+        <option *ngFor="let status of states" [value]="status">{{status}}</option>
+      </select>
+      <span *ngIf="!projectForm.get('projectStatus').valid && projectForm.get('projectStatus').touched" class="text text-danger">
+        <span *ngIf="projectForm.get('projectStatus').errors['required']">This field is required!</span>
+      </span>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" [disabled]="!projectForm.valid">Submit form</button>
+    </div>
+  </form>
+</div>

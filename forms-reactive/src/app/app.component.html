@@ -53,8 +53,11 @@
         <span
           *ngIf="!signupForm.valid && signupForm.touched"
           class="help-block">Please enter valid data!</span>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
       </form>
     </div>
   </div>
 </div>
+<br>
+<hr>
+<app-project></app-project>
