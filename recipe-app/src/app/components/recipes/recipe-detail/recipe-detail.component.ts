@@ -36,4 +36,8 @@ constructor(private recipeService: RecipeService,
 onAddToShoppingList(){
   this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
 }
+onDeleteRecipe(){
+  this.recipeService.deleteRecipe(this.id);
+  this.router.navigate(['/recipes']);
+}
 }
