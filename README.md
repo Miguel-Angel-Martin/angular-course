@@ -41,3 +41,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ```angular
 ng generate component server-element --skip-tests --standalone false
 ```
+
+## HTTP REQUEST
+
+[academind-REST API](https://academind.com/tutorials/building-a-restful-api-with-nodejs)
+
+[academind-Security](https://academind.com/tutorials/hide-javascript-code)
