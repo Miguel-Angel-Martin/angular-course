@@ -31,3 +31,13 @@ npm install
 [Link](https://www.youtube.com/watch?v=D1g6RW4oJEs)
 [Youtube 2](https://www.youtube.com/watch?v=Gm6FfkIsTC8)
 [Solution from the course](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656072#questions/19626762)
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Commands used
+
+```angular
+ng generate component server-element --skip-tests --standalone false
+```
