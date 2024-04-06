@@ -38,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onCreatePost(postData: Post) {
     // Send Http request
     this.postService.createAndStorePost(postData.title, postData.content);
+    this.onFetchPosts();
   }
   onFetchPosts() {
     this.isFetching= true;

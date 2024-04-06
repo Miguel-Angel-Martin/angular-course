@@ -30,3 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Link to the database](https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/)
 [FireBase](https://console.firebase.google.com/)
+[Official Docs](https://angular.io/guide/http)

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Post } from '../models/post.model';
 import { Subject, throwError } from 'rxjs';
 
@@ -18,18 +18,26 @@ export class PostsService {
     const postData: Post = {title: title, content: content};
     this.http.post<{name:string}>(
       'https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/posts.json', 
-      postData).subscribe(posts => {
-
+      postData, 
+      {observe: 'response'}
+      ).subscribe(posts => {
+        console.log(posts);
     }, error =>{
       this.error.next(error.message);
     });
   }
 
   fetchPosts() {
+    let searchParams = new HttpParams();
+    searchParams = searchParams.append('print', 'pretty');
     // Send Http request
     return this.http
     .get<{ [key: string]: Post }>(
-      'https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
+      'https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/posts.json',{
+        headers: new HttpHeaders({'Custom-Header': 'Hello'}),
+        params : searchParams,//new HttpParams().set('print', 'pretty') //parameters from firebase configuration
+        responseType: 'json'
+      })
       .pipe(
         map((responseData) => {
           const postArray: Post[] = [];
@@ -48,6 +56,21 @@ export class PostsService {
     }
     deleteAllPosts() {
       return this.http
-      .delete('https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
+      .delete('https://ng-complete-guide-f2557-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
+        {
+          observe: 'events',
+          responseType: 'json'
+        }
+      ).pipe(tap(event=>{
+        console.log(event);
+        if (event.type === HttpEventType.Sent){
+          console.log(event);
+        }
+        if(event.type === HttpEventType.Response){
+          console.log(event.body);
+        }
+      })
+        
+      );
     }
 }
