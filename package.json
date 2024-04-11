@@ -1,0 +1,12 @@
+{
+  "name": "angular-course",
+  "version": "1.0.0",
+  "description": "[Udemy Course](https://www.udemy.com/course/the-complete-guide-to-angular-2/)",
+  "main": "typescript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

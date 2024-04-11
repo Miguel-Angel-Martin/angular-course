@@ -31,3 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ```angular
 ng generate component server-element --skip-tests --standalone false
 ```
+
+## Firebase
+
+[firebase](https://recipe-app-26309-default-rtdb.europe-west1.firebasedatabase.app/)

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DataStorageService } from 'src/app/services/firebase/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,11 @@ export class HeaderComponent {
   /*  onSelect(feature: string) {
     this.featuredSelected.emit(feature);
   } */
+  constructor(private dataStorageService: DataStorageService) { }
+  onSaveData() {
+    this.dataStorageService.storeRecipe();
+  }
+  onFetchData() {
+    this.dataStorageService.fetchRecipe();
+  }
 }

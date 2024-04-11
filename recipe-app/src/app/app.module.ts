@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
+import { DropdownDirective } from './directives/dropdown.directive';
 
 import { HeaderComponent } from './components/header/header.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -11,13 +15,12 @@ import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-ite
 import { ShoppingListComponent } from './components/shopping/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './components/shopping/shopping-edit/shopping-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DropdownDirective } from './directives/dropdown.directive';
+
 import { ShoppingListService } from './services/shopping/shopping-list-service';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './services/recipes/recipe.service';
+import { DataStorageService } from './services/firebase/data-storage.service';
 
 
 @NgModule({
@@ -42,7 +45,7 @@ import { RecipeService } from './services/recipes/recipe.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
