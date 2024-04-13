@@ -21,6 +21,7 @@ import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-s
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './services/recipes/recipe.service';
 import { DataStorageService } from './services/firebase/data-storage.service';
+import { AuthComponent } from './components/auth/auth/auth.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { DataStorageService } from './services/firebase/data-storage.service';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
