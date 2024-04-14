@@ -12,11 +12,13 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signup(email:string, password:string){
-    return this.http.post<AuthResponseData>(Constants.API_URL+Constants.API_AUTH, {
+    console.log("-------------******----------");
+    console.log(email, password);
+    console.log(Constants.API_SIGNUP+Constants.API_KEY);
+    return this.http.post<AuthResponseData>(Constants.API_SIGNUP+Constants.API_KEY, {
       email:email,
       password: password,
       returnSecureToken: true
-
     });
   }
 }

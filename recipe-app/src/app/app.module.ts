@@ -22,6 +22,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
 import { RecipeService } from './services/recipes/recipe.service';
 import { DataStorageService } from './services/firebase/data-storage.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AuthComponent } from './components/auth/auth/auth.component';
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
