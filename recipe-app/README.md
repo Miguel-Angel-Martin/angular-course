@@ -35,3 +35,8 @@ ng generate component server-element --skip-tests --standalone false
 ## Firebase
 
 [firebase](https://recipe-app-26309-default-rtdb.europe-west1.firebasedatabase.app/)
+
+### Authentication
+
+[api](https://firebase.google.com/docs/reference/rest/auth/)
+
