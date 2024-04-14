@@ -12,6 +12,7 @@ export class AuthComponent {
 constructor(private authService: AuthService){}
 isLoginMode:boolean = true;
 isLoading: boolean = false;
+error:string=null;
 onSwitchMode(){
   this.isLoginMode = !this.isLoginMode;
 }
@@ -34,10 +35,13 @@ onSignup(email: string, password: string){
   console.log(email, password);
   this.authService.signup(email, password).subscribe(resData=>{
     console.log("ResData: ",resData);
+    this.isLoading = false;
   },
   errorRes=>{
     console.log("Error: ",errorRes);
-  },()=>{this.isLoading = false;} 
+    this.isLoading = false;
+    this.error = errorRes.error.error.message;
+  } 
   );
 }
 /* onLogin(email: string, password: string){
