@@ -40,3 +40,5 @@ ng generate component server-element --skip-tests --standalone false
 
 [api](https://firebase.google.com/docs/reference/rest/auth/)
 
+[sing up](https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY])
+[sing in](https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY])

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+
 import { AuthService } from 'src/app/services/firebase/auth.service';
+import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +16,7 @@ constructor(private authService: AuthService){}
 isLoginMode:boolean = true;
 isLoading: boolean = false;
 error:string=null;
+authObs: Observable<AuthResponseData>;
 onSwitchMode(){
   this.isLoginMode = !this.isLoginMode;
 }
@@ -22,35 +26,31 @@ onSubmit(form: NgForm){
   }
   const email = form.value.email;
   const password = form.value.password;
+  
+
   if (this.isLoginMode){
-    //this.onLogin(email, password);
+    this.isLoading = true;
+    this.onLogin(email, password);
   }else{
-    console.log("-------onSignup---------------");
     this.isLoading = true;
     this.onSignup(email, password);
   }
-  form.reset();
-}
-onSignup(email: string, password: string){
-  console.log(email, password);
-  this.authService.signup(email, password).subscribe(resData=>{
+  this.authObs.subscribe(resData=>{
     console.log("ResData: ",resData);
     this.isLoading = false;
   },
-  errorRes=>{
-    console.log("Error: ",errorRes);
+  errorMessage=>{
     this.isLoading = false;
-    this.error = errorRes.error.error.message;
+    this.error = errorMessage;
   } 
   );
+  form.reset();
 }
-/* onLogin(email: string, password: string){
-  this.authService.login(email, password).subscribe(resData=>{
-    console.log(resData);
-    form.reset();
-  },
-  errorRes=>{
-    console.log(errorRes);
-  });
-} */
+onSignup(email: string, password: string){
+  this.authObs = this.authService.signup(email, password)
+}
+onLogin(email: string, password: string){
+  this.authObs = this.authService.login(email, password);
+}
+
 }

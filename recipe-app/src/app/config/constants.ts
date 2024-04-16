@@ -5,5 +5,6 @@ export const Constants = {
   DEFAULT_LANGUAGE: 'en',
   //INFO: https://firebase.google.com/docs/reference/rest/auth
   API_SIGNUP: 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
-  API_KEY:'AIzaSyD-N24AM6nXWi00L39NgMZRJEcTir3orx4'
+  API_KEY:'AIzaSyD-N24AM6nXWi00L39NgMZRJEcTir3orx4',
+  API_LOGIN:"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
 };
