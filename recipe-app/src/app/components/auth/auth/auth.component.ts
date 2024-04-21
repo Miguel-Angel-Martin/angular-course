@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { AuthService } from 'src/app/services/firebase/auth.service';
 import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +13,7 @@ import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data
 })
 export class AuthComponent {
 
-constructor(private authService: AuthService){}
+constructor(private authService: AuthService, private router: Router){}
 isLoginMode:boolean = true;
 isLoading: boolean = false;
 error:string=null;
@@ -35,9 +36,11 @@ onSubmit(form: NgForm){
     this.isLoading = true;
     this.onSignup(email, password);
   }
+
   this.authObs.subscribe(resData=>{
     console.log("ResData: ",resData);
     this.isLoading = false;
+    this.router.navigate(['/recipes']);
   },
   errorMessage=>{
     this.isLoading = false;

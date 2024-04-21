@@ -1,14 +1,16 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { Subject, catchError, tap, throwError } from 'rxjs';
 
 import { Constants } from 'src/app/config/constants';
 import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  user= new Subject<User>();
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +23,9 @@ export class AuthService {
       password: password,
       returnSecureToken: true
     }).pipe(
-      catchError(this.handleError))
+      catchError(this.handleError), tap(resData => {
+        this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
+      }))
   }
   login(email:string, password:string){
       return this.http.post<AuthResponseData>(Constants.API_LOGIN+Constants.API_KEY, {
@@ -29,7 +33,15 @@ export class AuthService {
         password: password,
         returnSecureToken: true
     }).pipe(
-      catchError(this.handleError))
+      catchError(this.handleError),tap(resData => {
+        this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
+      }))
+  }
+
+  private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
+    const expirationDate = new Date(new Date().getTime() + (expiresIn * 1000));
+        const user = new User(email, userId, token, expirationDate);
+        this.user.next(user);
   }
   private handleError(errorRes: HttpErrorResponse){
     let errorMessage = 'An unknown error occurred!';
