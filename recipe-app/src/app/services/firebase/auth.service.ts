@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
 
 import { Constants } from 'src/app/config/constants';
 import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
@@ -10,14 +10,13 @@ import { User } from 'src/app/models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  user= new Subject<User>();
+  user= new BehaviorSubject<User>(null);
+  
+
 
   constructor(private http: HttpClient) { }
 
   signup(email:string, password:string){
-    console.log("-------------******----------");
-    console.log(email, password);
-    console.log(Constants.API_SIGNUP+Constants.API_KEY);
     return this.http.post<AuthResponseData>(Constants.API_SIGNUP+Constants.API_KEY, {
       email:email,
       password: password,
@@ -27,6 +26,12 @@ export class AuthService {
         this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
       }))
   }
+  /**
+   * 
+   * @param email 
+   * @param password 
+   * @returns 
+   */
   login(email:string, password:string){
       return this.http.post<AuthResponseData>(Constants.API_LOGIN+Constants.API_KEY, {
         email:email,
