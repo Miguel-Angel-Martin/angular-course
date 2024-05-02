@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { DropdownDirective } from './directives/dropdown.directive';
 
@@ -23,6 +23,8 @@ import { RecipeService } from './services/recipes/recipe.service';
 import { DataStorageService } from './services/firebase/data-storage.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
+import { AuthIterceptor } from './services/auth/auth.interceptor';
+
 
 
 @NgModule({
@@ -49,7 +51,7 @@ import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loadin
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, { provide: HTTP_INTERCEPTORS, useClass: AuthIterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

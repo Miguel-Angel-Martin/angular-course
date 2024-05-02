@@ -17,16 +17,10 @@ export class DataStorageService {
         console.log(response);
       })
   }
-  fetchRecipes(){
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap(user =>{
-        return this.http.get<Recipe[]>(
-          Constants.API_URL+Constants.API_RECIPE,
-          {
-          params: new HttpParams().set('auth', user.token)
-          })        
-    }),
+  fetchRecipes(){    
+    return this.http.get<Recipe[]>(
+        Constants.API_URL+Constants.API_RECIPE,                 
+    ).pipe(
     map(recipes => {
       return recipes.map(recipe => {
         return {
@@ -36,6 +30,6 @@ export class DataStorageService {
       })
     }),tap(recipes =>{
       this.recipeService.setRecipes(recipes);
-    })) 
+    }))
   }
 }
