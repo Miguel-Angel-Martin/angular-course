@@ -49,6 +49,7 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + (expiresIn * 1000));
         const user = new User(email, userId, token, expirationDate);
         this.user.next(user);
+        localStorage.setItem('userData', JSON.stringify(user));
   }
   private handleError(errorRes: HttpErrorResponse){
     let errorMessage = 'An unknown error occurred!';
@@ -73,6 +74,24 @@ export class AuthService {
     }
     return throwError(errorMessage);
   }
+
+  autoLogin(){
+    const userData:{
+      email: string,
+      id: string,
+      _token: string,
+      _tokenexpirationDate: Date
+    }= JSON.parse(localStorage.getItem('userData'));
+    if(!userData){
+      return;
+    }
+    const loadedUser= new User(userData.email, userData.id, userData._token, userData._tokenexpirationDate);
+
+    if(loadedUser.token){
+      this.user.next(loadedUser);
+    }
+  }
+
   logout(){
     this.user.next(null);
     this.router.navigate(['/auth']);
