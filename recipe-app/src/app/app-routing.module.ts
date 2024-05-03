@@ -10,16 +10,27 @@ import { recipeResolver } from './resolvers/recipe-resolver';
 import { AuthComponent } from './components/auth/auth/auth.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/', pathMatch : 'full'},
-  {path: 'recipes', component: RecipesComponent, children: [
-    {path: '', component: RecipeStartComponent},
-    {path: 'new', component: RecipeEditComponent},
-    {path: ':id', component: RecipeDetailComponent, resolve:[recipeResolver]},
-    {path: ':id/edit', component: RecipeEditComponent},
-
-  ]},
-  {path: 'shopping-list', component: ShoppingListComponent},
-  {path: 'auth', component: AuthComponent}
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    children: [
+      { path: '', component: RecipeStartComponent },
+      { path: 'new', component: RecipeEditComponent },
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+        resolve: [recipeResolver]
+      },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent,
+        resolve: [recipeResolver]
+      }
+    ]
+  },
+  { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'auth', component: AuthComponent }
 ];
 
 

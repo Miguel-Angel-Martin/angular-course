@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { AuthService } from 'src/app/services/firebase/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
 import { Router } from '@angular/router';
 

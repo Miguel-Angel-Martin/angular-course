@@ -51,7 +51,16 @@ import { AuthIterceptor } from './services/auth/auth.interceptor';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, { provide: HTTP_INTERCEPTORS, useClass: AuthIterceptor, multi: true }],
+  providers: [
+    ShoppingListService, 
+    RecipeService, 
+    DataStorageService, 
+    {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthIterceptor, 
+    multi: true 
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

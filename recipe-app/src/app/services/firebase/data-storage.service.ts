@@ -4,7 +4,7 @@ import { RecipeService } from '../recipes/recipe.service';
 import { Constants } from 'src/app/config/constants';
 import { Recipe } from 'src/app/models/recipe.model';
 import { exhaustMap, map, take, tap } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
