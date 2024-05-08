@@ -24,6 +24,7 @@ import { DataStorageService } from './services/firebase/data-storage.service';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
 import { AuthIterceptor } from './services/auth/auth.interceptor';
+import { AlertComponent } from './shared/alert/alert/alert.component';
 
 
 
@@ -43,6 +44,7 @@ import { AuthIterceptor } from './services/auth/auth.interceptor';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
