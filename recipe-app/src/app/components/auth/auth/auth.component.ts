@@ -17,6 +17,9 @@ constructor(private authService: AuthService, private router: Router){}
 isLoginMode:boolean = true;
 isLoading: boolean = false;
 error:string=null;
+errorMessage: string = '';
+errorTitle: string = 'An Error Occurred!'; // Optional default title
+
 authObs: Observable<AuthResponseData>;
 onSwitchMode(){
   this.isLoginMode = !this.isLoginMode;

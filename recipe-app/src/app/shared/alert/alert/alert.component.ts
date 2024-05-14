@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-alert',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './alert.component.css'
 })
 export class AlertComponent {
-  message: string;
+  @Input() message: string; // Error message to display
+  ngOnInit(): void {
+    if (this.message) {
+      const modal = new bootstrap.Modal(document.getElementById('staticBackdrop')!);
+      modal.show();
+    }
+  }
 }
