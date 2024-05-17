@@ -4,12 +4,13 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { Recipe } from '../models/recipe.model';
-import { DataStorageService } from '../services/firebase/data-storage.service';
-import { RecipeService } from '../services/recipes/recipe.service';
+
+import { Recipe } from './recipe.model';
+import { DataStorageService } from '../shared/data-storage.service';
+import { RecipeService } from './recipe.service';
 
 @Injectable({ providedIn: 'root' })
-export class recipeResolver implements Resolve<Recipe[]> {
+export class RecipesResolverService implements Resolve<Recipe[]> {
   constructor(
     private dataStorageService: DataStorageService,
     private recipesService: RecipeService
@@ -25,4 +26,3 @@ export class recipeResolver implements Resolve<Recipe[]> {
     }
   }
 }
-

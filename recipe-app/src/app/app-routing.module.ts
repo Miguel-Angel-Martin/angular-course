@@ -1,6 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ShoppingListComponent } from './components/shopping/shopping-list/shopping-list.component';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
@@ -9,7 +8,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
 import { recipeResolver } from './resolvers/recipe-resolver';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { AuthGuard } from './guards/auth/auth.guard';
-
+//canActivate: [AuthGuard],
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {

@@ -12,6 +12,7 @@ export class AuthGuard implements CanActivate{
             map(user=>{
             const isAuth= !!user;
             if (isAuth){
+                console.log(isAuth);
                 return true;
             }else{
                 return this.router.createUrlTree(['/auth']);

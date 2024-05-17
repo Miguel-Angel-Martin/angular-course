@@ -15,16 +15,19 @@ import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-ite
 import { ShoppingListComponent } from './components/shopping/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './components/shopping/shopping-edit/shopping-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-import { ShoppingListService } from './services/shopping/shopping-list-service';
+import { AlertComponent } from './shared/alert/alert/alert.component';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
+import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
+import { AuthComponent } from './components/auth/auth/auth.component';
+
+import { ShoppingListService } from './services/shopping/shopping-list-service';
 import { RecipeService } from './services/recipes/recipe.service';
 import { DataStorageService } from './services/firebase/data-storage.service';
-import { AuthComponent } from './components/auth/auth/auth.component';
-import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
+
 import { AuthIterceptor } from './services/auth/auth.interceptor';
-import { AlertComponent } from './shared/alert/alert/alert.component';
+import { PlaceholderDirective } from './directives/placeholder.directive';
+
 
 
 
@@ -45,6 +48,7 @@ import { AlertComponent } from './shared/alert/alert/alert.component';
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    PlaceholderDirective
   ],
   imports: [
     BrowserModule,

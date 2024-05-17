@@ -7,12 +7,10 @@ import {
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { PlaceholderDirective } from 'src/app/directives/placeholder.directive';
-import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { AlertComponent } from 'src/app/shared/alert/alert/alert.component';
 
-
+import { AuthService, AuthResponseData } from './auth.service';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 @Component({
   selector: 'app-auth',
@@ -23,6 +21,7 @@ export class AuthComponent implements OnDestroy {
   isLoading = false;
   error: string = null;
   @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+
   private closeSub: Subscription;
 
   constructor(
@@ -80,11 +79,15 @@ export class AuthComponent implements OnDestroy {
   }
 
   private showErrorAlert(message: string) {
-    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    // const alertCmp = new AlertComponent();
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
     const hostViewContainerRef = this.alertHost.viewContainerRef;
     hostViewContainerRef.clear();
 
     const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
     componentRef.instance.message = message;
     this.closeSub = componentRef.instance.close.subscribe(() => {
       this.closeSub.unsubscribe();
