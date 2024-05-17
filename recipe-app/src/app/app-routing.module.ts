@@ -8,7 +8,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
 import { recipeResolver } from './resolvers/recipe-resolver';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { AuthGuard } from './guards/auth/auth.guard';
-//canActivate: [AuthGuard],
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
@@ -40,7 +40,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-
-}
+export class AppRoutingModule {}
