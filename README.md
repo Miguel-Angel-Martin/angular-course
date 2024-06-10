@@ -47,3 +47,9 @@ ng generate component server-element --skip-tests --standalone false
 [academind-REST API](https://academind.com/tutorials/building-a-restful-api-with-nodejs)
 
 [academind-Security](https://academind.com/tutorials/hide-javascript-code)
+
+
+## NgRx
+
+Add modules ng add @ngrx/store 
+
