@@ -53,3 +53,7 @@ ng generate component server-element --skip-tests --standalone false
 
 Add modules ng add @ngrx/store 
 
+## Source code
+
+[new source code](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/blob/main/attachments/12-http/shared.zip)
+
