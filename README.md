@@ -41,7 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ```angular
 ng generate component server-element --skip-tests --standalone false
 ```
-
+cle
 ## HTTP REQUEST
 
 [academind-REST API](https://academind.com/tutorials/building-a-restful-api-with-nodejs)
@@ -53,7 +53,10 @@ ng generate component server-element --skip-tests --standalone false
 
 Add modules ng add @ngrx/store 
 
-## Source code
+## Source code of update 2024
 
 [new source code](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/blob/main/attachments/12-http/shared.zip)
 
+## Shortcuts VSCODE
+
+[tutorials AcademyMind](https://academind.com/tutorials/)

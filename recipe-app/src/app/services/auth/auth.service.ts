@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 
 import { Constants } from 'src/app/config/constants';
 import { AuthResponseData } from 'src/app/interfaces/firebase/auth-response-data';
@@ -73,6 +73,7 @@ export class AuthService {
         break;
       case 'USER_DISABLED':
         errorMessage = 'This user is disabled.';
+        break;
       case 'INVALID_LOGIN_CREDENTIALS':
         errorMessage = 'Invalid login credentials';
     }

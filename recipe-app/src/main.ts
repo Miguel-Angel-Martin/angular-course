@@ -9,6 +9,6 @@ declare global {
 }
 // And this makes `_` available globally as a JS object:
 (window as any)['_'] = lodash;
-(window as any)['moment'] = moment;
+(window as Window & typeof globalThis)['moment'] = moment;
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

@@ -8,7 +8,7 @@ import * as bootstrap from 'bootstrap';
 })
 export class AlertComponent implements OnInit {
   @Input() message: string; // Error message to display
-  @Output() close = new EventEmitter<void>();
+  @Output() alertClosed = new EventEmitter<void>();
   ngOnInit(): void {
     if (this.message) {
       const modal = new bootstrap.Modal(document.getElementById('staticBackdrop')!);
@@ -16,7 +16,7 @@ export class AlertComponent implements OnInit {
     }
   }
   onClose() {
-    this.close.emit();
+    this.alertClosed.emit();
   }
 
 }
